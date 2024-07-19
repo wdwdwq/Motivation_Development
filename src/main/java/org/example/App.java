@@ -4,34 +4,38 @@ import java.util.Scanner;
 
 public class App { // App 클래스 정의
     //
-    private Scanner sc; // 인스턴스 변수 private로 선언 App 클래수 외부에서 접근 할 수 없음
+    private Scanner sc;
     //생성자
-    public App(Scanner sc){ // Scanner 객체를 인자로 받음
-        this.sc = sc ; // 인스턴스 변수에 저장
+    public App(Scanner sc){
+        this.sc = sc ;
     }
-    //생성자를 publi로 선언하면 해당 클래스의 객체를 다른 클래스에서 접근 할 수 있음
-    //private나 protected로 선언하면 객체를 선언 할 수 있는 범위 제한 된다
-    //메서드
-    public void run(){ // 메서드
-        System.out.println("== motivation start =="); // ln은 출력되는 순간 한줄 Enter 효과가 있음
-        while(true){ // 무한 루프 별도의 종료가 있어야 종료 된다
-            System.out.println("명령어 ) ");
-            String cmd  = sc.nextLine(); //  사용자 입력을 cmd 변수에 저장
+    public void run(){
+        System.out.println("== motivation start ==");
 
-            if(cmd.equals("exit")){
-                System.out.println("===종료===");
-                break; //exit 입력 받으면 여기서 코드 끝
-            }else if (cmd.length() == 0){ // // 사용자 빈 명령어 입력하면
-                System.out.println("명령어 입력해"); // 이 문장 출력하고
-                continue; // 명령어를 입력받는 곳으로 돌아간다
+        int lastId = 1; // id 값 부여 추가 명령어 실행 시 id 증가
+        while (true) {
+            System.out.print("command) ");
+            String cmd = sc.nextLine().trim();
+
+            if (cmd.equals("exit")) {
+                System.out.println("== motivation end ==");
+                break;
+            } else if (cmd.length() == 0) {
+                System.out.println("명령어 입력해");
+                continue;
             }
 
-            if(cmd.equals("add")){
-                System.out.println("motivation : ");
-                String motivation = sc.nextLine(); // 한 줄 전체를 읽어 변수에 저장
-                System.out.println("source : ");
+            if (cmd.equals("add")) {
+                System.out.print("motivation : ");
+                String motivation = sc.nextLine();
+                System.out.print("source : ");
                 String source = sc.nextLine();
-                System.out.println("~번 motivation이 등록 되었습니다");
+                System.out.printf("%d번 motivation이 등록 되었습니다\n", lastId); // 아이디 출력하고
+                lastId++;//아이디 증가
+            } else if (cmd.equals("list")) {
+                System.out.println("== motivation list ==");
+                System.out.printf("  id   //   motivation   //  source   \n");
+                System.out.println("=".repeat(35));// 메서드 주어진 문자열 지정된 횟수만큼 반복 
             }
         }
     }
