@@ -1,5 +1,7 @@
 package org.example;
 
+import org.example.entity.Motivation;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
