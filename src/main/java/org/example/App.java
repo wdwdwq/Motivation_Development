@@ -42,16 +42,18 @@ public class App {
                 System.out.printf("%d번 motivation이 등록 되었습니다\n", id);
                 lastId++;
             } else if (cmd.equals("list")) {
+                if(motivations.isEmpty()){
+                    System.out.printf("등록된거 없어");
+                    continue;
+                }
                 System.out.println("== motivation list ==");
-                System.out.printf("  id   //   motivation   //  source   \n");
+                System.out.println("  id   //   motivation   //  source   \n");
                 System.out.println("=".repeat(35));
 
-                if(motivations.size() > 0){
-                    System.out.println("게시물 없음");
-                }else{
-                    System.out.println("있음");
-                    System.out.println("등록된 motivation 갯수 : " + motivations.size());
-                }
+               for(int i = motivations.size() - 1; i >= 0; i--){
+                   Motivation motivation = motivations.get(i);
+                   System.out.printf("  %d   //   %s   //  %s   \n", motivation.getId(), motivation.getSource(), motivation.getBody());
+               }
 
 
 
