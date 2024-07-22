@@ -1,18 +1,22 @@
 package org.example;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
-public class App { // App 클래스 정의
-    //
+public class App {
     private Scanner sc;
-    //생성자
+
     public App(Scanner sc){
         this.sc = sc ;
     }
     public void run(){
         System.out.println("== motivation start ==");
 
-        int lastId = 1; // id 값 부여 추가 명령어 실행 시 id 증가
+        int lastId = 0;
+
+        List<Motivation> motivations = new ArrayList<>();
+
         while (true) {
             System.out.print("command) ");
             String cmd = sc.nextLine().trim();
@@ -26,16 +30,31 @@ public class App { // App 클래스 정의
             }
 
             if (cmd.equals("add")) {
+                int id = lastId + 1;
                 System.out.print("motivation : ");
-                String motivation = sc.nextLine();
+                String body = sc.nextLine();
                 System.out.print("source : ");
                 String source = sc.nextLine();
-                System.out.printf("%d번 motivation이 등록 되었습니다\n", lastId); // 아이디 출력하고
-                lastId++;//아이디 증가
+
+                Motivation motivation = new Motivation(id, body, source);
+                motivations.add(motivation);
+
+                System.out.printf("%d번 motivation이 등록 되었습니다\n", id);
+                lastId++;
             } else if (cmd.equals("list")) {
                 System.out.println("== motivation list ==");
                 System.out.printf("  id   //   motivation   //  source   \n");
-                System.out.println("=".repeat(35));// 메서드 주어진 문자열 지정된 횟수만큼 반복 
+                System.out.println("=".repeat(35));
+
+                if(motivations.size() > 0){
+                    System.out.println("게시물 없음");
+                }else{
+                    System.out.println("있음");
+                    System.out.println("등록된 motivation 갯수 : " + motivations.size());
+                }
+
+
+
             }
         }
     }
