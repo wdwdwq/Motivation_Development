@@ -1,0 +1,134 @@
+/* 노말라이즈 */
+html {
+font-family: "Noto Sans KR", sans-serif;
+}
+
+body,
+ul,
+li {
+margin: 0;
+padding: 0;
+list-style: none;
+}
+
+a {
+color: inherit;
+text-decoration: none;
+}
+
+/* 라이브러리 */
+.header {
+width: 1600;
+background-color: white;
+margin-left: auto;
+margin-right: auto;
+margin-top: 50px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 0 80px;
+}
+
+.logoBar {
+flex: 1;
+}
+
+.logoBar > a {
+font-size: 1.3rem;
+}
+
+.navBar {
+flex: 4;
+text-align: center;
+}
+
+.inline-grid {
+font-size: 0;
+margin: 0;
+padding: 0;
+}
+
+.inline-grid > li {
+display: inline-block;
+font-size: 0.8rem;
+margin: 0 10px;
+font-weight:bold;
+}
+
+.inline-grid > li > a {
+text-decoration: none;
+color: inherit;
+}
+
+.userBar {
+flex: 1;
+display: flex;
+align-items: center;
+justify-content: flex-end;
+}
+
+.userBar ul {
+display: flex;
+align-items: center;
+margin: 0;
+padding: 0;
+}
+
+.userBar ul > li {
+margin-left: 20px;
+}
+
+.userBar ul > li:first-child {
+margin-left: 0;
+}
+
+.userBar ul > li > a {
+font-size: 1rem;
+color: inherit;
+}
+
+.userBar ul > i{
+margin-right:10px;
+}
+.userBar ul > i > a{
+font-weight: bold;
+}
+
+.search-box {
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 3px;
+border: 1px solid #ccc;
+border-radius:5px;
+background-color: #f9f9f9;
+}
+
+.search-box > i {
+font-size: 1.5rem;
+color: #333;
+}
+
+.search-box > input {
+border: none;
+outline: none;
+margin-left: 2px;
+font-size: 1rem;
+background-color: transparent;
+}
+
+.navBar {
+display: flex;
+align-items: center;
+justify-content: center;
+width: 100%;
+height: 50px;
+background-color: white;
+border: 1px solid #ccc;
+margin-top: 20px;
+}
+
+.navBar > i {
+font-size: 1.5rem;
+color: #333;
+}
